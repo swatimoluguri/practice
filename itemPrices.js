@@ -24,7 +24,7 @@ function getPrices(taxBoolean) {
     for (var i = 0; i < dishData.length; i++) {
         var finalPrice;
         if (taxBoolean==true) {
-            finalPrice=dishData[i]['price'] * 18;
+            finalPrice=dishData[i]['price'] * tax;
         } else if(taxBoolean == false){
             finalPrice = dishData[i]['price'];
         }else{
