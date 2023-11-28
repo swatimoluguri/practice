@@ -1,0 +1,38 @@
+.Experience{
+    text-align: center;
+    background-color: white;
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 95vh;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri;
+  }
+
+  .header{
+    text-align: center;
+  }
+
+  .text-box{
+    text-align: center;
+    border-bottom: 5px solid black;
+    width: 350px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .company-logo {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    height: 5vmin;
+    align-self: center;
+    margin-right: 10px;
+  }
+
+  .company-caption{
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
+  }

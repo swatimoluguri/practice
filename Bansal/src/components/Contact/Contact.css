@@ -1,0 +1,12 @@
+.Contact{
+    text-align: center;
+    background-color: white;
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 95vh;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri;
+  }

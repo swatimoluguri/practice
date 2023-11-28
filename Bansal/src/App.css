@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+  background-color: #0F1F20;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  /* cursor: url('./images/mouse-icons/mouse-cursor.png'), auto; */
+  background-color: #0F1F20;
+  background-image: url('./images/background/homePage.jpg');
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: calc(11px + 3vmin);
+  color: tan;
+  text-emphasis-color: initial;
+  text-decoration-color: lawngreen;
+}
+
+/* .mouse-icon{
+  cursor: url('./images/mouse-icons/mouse-cursor.png'), auto;
+} */
+
+.App-link {
+  color: #61dafb;
+}
+
+/* #mouse-left-click{
+  cursor: url('./images/mouse-icons/mouse-lef-click.png'), auto; 
+}
+
+.mouse-left-click{
+  cursor: url('./images/mouse-icons/mouse-lef-click.png'), auto; 
+} */
+
+.top-bar{
+  /* cursor: url('./images/mouse-icons/mouse-cursor.png'), auto; */
+  min-height: 5vh;
+  max-height: 6vh;
+  background-color: #0F1F20;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.name{
+  color: #E31E6D;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.menu-item{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: beige;
+  padding: 10px;
+}
