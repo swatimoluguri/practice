@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import { ThemeProvider, useTheme } from "./ThemeContext";
 import Switch from "./Switch";
 
@@ -17,7 +17,81 @@ const PasswordErrorMessage = () => {
     );
 };
 
-function App() {
+//-----------------Using HOC---------------
+// const withMousePosition = (WrappedComponent)=>{
+//   return (props)=>{
+//     const [mousePosition,setMousePosition] = useState({
+//       x:0,
+//       y:0,
+//     })
+
+//     useEffect(()=>{
+//       const handleMousePositionChange=(e)=>{
+//         setMousePosition({
+//           x:e.clientX,
+//           y:e.clientY
+//         });
+//       };
+//       window.addEventListener("mouseover",handleMousePositionChange);
+//       return ()=>{
+//         window.removeEventListener("mouseover",handleMousePositionChange);
+//       }
+//     },[]);
+//     return <WrappedComponent {...props} mousePosition={mousePosition}/>;
+//   }
+// }
+
+// const PointMouseLogger = ({mousePosition})=>{
+//   if(!mousePosition){
+//     return null;
+//   }
+//   return(
+//     <p>
+//       ({mousePosition.x}, {mousePosition.y})
+//     </p>
+//   );
+// };
+
+// const PointMouseTracker=withMousePosition(PointMouseLogger);
+
+//---------------------HOC End---------------
+
+//--------------------Using render props---------------
+
+const MousePosition = ({ render }) => {
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  useEffect(() => {
+    const handleMousePositionChange = (e) => {
+        setMousePosition({
+          x:e.clientX,
+          y:e.clientY
+        });
+    };
+    window.addEventListener("mousemove", handleMousePositionChange);
+    return () => {
+      window.removeEventListener("mousemove", handleMousePositionChange);
+    };
+  }, []);
+  return render({ mousePosition });
+};
+
+const PointMouseTracker = () => {
+  return (
+      <MousePosition render={({ mousePosition }) => (
+        <p>
+        ({ mousePosition.x }, { mousePosition.y })
+        </p>
+      )}/>
+  )
+};
+
+//-------------------- render props end---------------
+
+function App() { 
   const [firstName,setFirstName]=useState("");
   const [lastName,setLastName]=useState("");
   const [email,setEmail]=useState("");
@@ -47,6 +121,8 @@ const handleSubmit=(e)=>{
   alert("Account Created!");
   clearForm();
 }
+
+
 
   return (
     <div className="App" style={{
@@ -114,7 +190,7 @@ const handleSubmit=(e)=>{
           </select>
           </div>  
           <button type="submit" disabled={!getIsFormValid()}>Create Account</button>     
-          
+          <PointMouseTracker/>
         </fieldset>
       </form>
       
